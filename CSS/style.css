@@ -1,1 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Felipa');
+html{
+  scroll-behavior: smooth;
+}
+body{
+  margin: 0
+  padding: 0;
+  height: 100vh;
+  background: #000;
+  overflow-x: hidden;
+  font-family: 'Felipa', cursive;
+}
+section{
+  position: relative;
+  height: 100vh;
+}
+#menu a{
+  display: none;
+  position: fixed;
+  left: -90px;
+  transition: 0.3s;
+  padding: 10px;
+  width: 100px;
+  text-decoration: none;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #CD853F;
+  border-radius: 0 5px 5px 0;
+  z-index: 100;
+}
+#menu a:nth-child(1){
+  animation-duration: 1.9s;
+  animation-delay: 0.1s;
+}
+#menu a:nth-child(2){
+  animation-duration: 1.9s;
+  animation-delay: 0.2s;
+}
+#menu a:nth-child(3){
+  animation-duration: 1.9s;
+  animation-delay: 0.3s;
+}
+#menu a:nth-child(4){
+  animation-duration: 1.9s;
+  animation-delay: 0.4s;
+}
+#menu a:nth-child(5){
+  animation-duration: 1.9s;
+  animation-delay: 0.5s;
+}
+#menu a:hover {
+  left: 0;
+}
+#home{
+  top: 20px;
+  background-color: #f00;
+}
+#products{
+  top: 80px;
+  background-color: #ff0;
+}
 
+#about{
+  top: 140px;
+  background-color: #0f0;
+}
+
+#explore{
+  top: 200px;
+  background-color: #0ff;
+}
+
+#contact{
+  top: 260px;
+  background-color: #00ff98;
+}
+
+#sec .ls{
+  position: absolute;
+  color: white;
+  top: -10%;
+  right: -10%;
+  width: 20%;
+  height: 30%;
+  border-radius: 50%;
+  background-color: #FFF8DC;
+  opacity: 0;
+}
+
+#sec .ls a{
+  position: absolute;
+  text-decoration: none;
+  text-align: center;
+  top: 50%;
+  left: 0%;
+  transform-style: preserve-3d;
+  transform: translate(10%,-10%) rotateZ(45deg);
+  font-family: 'Felipa', cursive;
+  font-size: 1.9em;
+  font-weight: bold;
+  color: #000;
+}
+#sec p{
+  position: absolute;
+  font-size: 2em;
+  color: white;
+  display: none;
+}
+#sec #text{
+  top: 0;
+  right: 30%;
+  background: linear-gradient(to right,#f00,#0f0,#0ff,#ff0);
+  animation-delay: 2s;
+  animation-duration: 1s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.8);
+}
+#sec #text1{
+  bottom:5%;
+  left: 0;
+  background: linear-gradient(to right,#f00,#f00,#0f0,#0ff);
+  animation-delay: 3s;
+  animation-duration: 1s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.6);
+}
+#sec #text2{
+  bottom: 15%;
+  right: 0;
+  background: linear-gradient(to right,#0f0,#0ff,#ff0,#0ff);
+  animation-delay: 4s;
+  animation-duration: 1s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255,255,255,0.6);
+}
+#sec #indic{
+  position: absolute;
+  left: 45%;
+  transform: translateX(-50%);
+  width: 5vw;
+  height: 10vh;
+  animation-duration: 2s;
+  display: none;
+}
+#sec #indic span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 1vh;
+  background-color: turquoise;
+  border-radius: 20px;
+}
+#sec #indic span:nth-child(1){
+  left: 0;
+  transform-origin: right;
+  transform: rotateZ(45deg);
+}
+#sec #indic span:nth-child(2){
+  right: 0;
+  transform-origin: left;
+  transform: rotateZ(-45deg);
+}

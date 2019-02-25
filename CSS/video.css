@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Felipa');
+.sec{
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: #000;
+}
+.sec::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right,#f00,#f00,#0f0,#0ff,#ff0,#0ff);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+video{
+  object-fit: cover;
+  width: 100%;
+  opacity: 1;
+}
+.sec h1{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  font-size: 5em;
+  font-family: 'Felipa', cursive;
+  letter-spacing: 0.2em;
+}
+.sec h1 span{
+  display: inline-block;
+  opacity: 0;
+  animation: animate 1s linear forwards;
+}
+@keyframes animate {
+  0%{
+    opacity: 0;
+    transform: rotateY(90deg);
+    filter: blur(10px);
+  }
+  100%{
+    opacity: 1;
+    transform: rotateY(0deg);
+    filter: blur(0);
+  }
+}
+.sec h1 span:nth-child(1){
+  color: #f00;
+  animation-delay: 1s;
+}
+.sec h1 span:nth-child(2){
+  color: #ff0;
+  animation-delay: 2s;
+}
+.sec h1 span:nth-child(3){
+  color: #0f0;
+  animation-delay: 2.5s;
+}
+.sec h1 span:nth-child(4){
+  color: #00ff98;
+  animation-delay: 3s;
+}
+.sec h1 span:nth-child(5){
+  color: #0ff;
+  animation-delay: 3.5s;
+}
+.sec h1 span:nth-child(6){
+  color: #0f0;
+  animation-delay: 3.75s;
+}
+.sec h1 span:nth-child(7){
+  color: #ff0;
+  animation-delay: 4s;
+}
+.sec h1 span:nth-child(8){
+  color: #00ff98;
+  animation-delay: 4.5s;
+}
