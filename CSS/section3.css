@@ -23,12 +23,13 @@
   display: table;
   box-sizing: border-box;
   box-shadow: 2px 5px 5px rgba(0,0,0,0.7);
+  padding: 10px;
 }
 #sec3 .text .info{
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  font-size: 1.7em;
+  font-size: 1.5em;
 }
 #sec3 .button{
   width: 200px;
