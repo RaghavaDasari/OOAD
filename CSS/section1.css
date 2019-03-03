@@ -58,9 +58,40 @@
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  filter: blur(0) grayscale(0);
+  transition-duration: 0.3s;
+}
+#sec1 .item .content{
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 10px;
+  opacity: 0;
+  transition-duration: 0.3s;
+  transition-delay: 0.35s;
+  z-index: 1000;
+  font-size: 20px;
+  color: #111;
+}
+#sec1 .item .content h4{
+  color: #00ff54;
+}
+#sec1 .item .content p{
+  color: #058aff;
 }
 #sec1 .item:nth-child(n):hover{
   width: 180px;
   height: 220px;
   transform: rotateZ(360deg);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.7);
+}
+#sec1 .item:nth-child(n):hover img{
+  filter: blur(5px) grayscale(150%);
+}
+#sec1 .item:nth-child(n):hover .content{
+  opacity: 1;
+  top: 0;
 }

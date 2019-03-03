@@ -46,4 +46,15 @@ $(document).ready(function(){
     autoplayTimeout:2000,
     autoplayHoverPause:true
   });
+
+  $('#sec3 .button').click(function(){
+    window.location.href="form.html";
+  });
+
+  $('#sec4 .form .close').click(function(){
+    $('#sec4 .blur').toggleClass('on');
+    $('#sec4 .form .close').toggleClass('fa-close');
+    $('#sec4 .form .close').toggleClass('fa-comments');
+    $('#sec4 .form').toggleClass('active');
+  });
 });

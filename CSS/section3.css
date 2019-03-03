@@ -48,3 +48,20 @@
   color: #e43;
   background: #f0f0f0;
 }
+
+#sec3 .points{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 45%;
+  height: 60%;
+  background: url('../OtherMedia/section3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+}
+#sec3 .points h3{
+
+}
