@@ -1,3 +1,49 @@
 #sec3{
-  background-color: #0ff;
+  background-color: #00ffaf;
+  overflow-x: hidden;
+}
+#sec3 h1{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  text-align: center;
+  color: #333;
+  font-size: 3em;
+}
+#sec3 .text{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 45%;
+  height: 80%;
+  background-color: azure;
+  border-radius: 50%;
+  display: table;
+  box-sizing: border-box;
+  box-shadow: 2px 5px 5px rgba(0,0,0,0.7);
+}
+#sec3 .text .info{
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.7em;
+}
+#sec3 .button{
+  width: 200px;
+  background: #e43;
+  color: #f0f0f0;
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+  text-align: center;
+  font-size: 19px;
+  cursor: pointer;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+#sec3 .button:hover{
+  color: #e43;
+  background: #f0f0f0;
 }
