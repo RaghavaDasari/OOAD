@@ -1,6 +1,6 @@
 #sec4{
   background-color: #10756F;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 #sec4 .blur{
   position: absolute;

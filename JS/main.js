@@ -20,7 +20,7 @@ $(document).ready(function(){
         $('#sec #indic').addClass('bounce');
         $('body').css('overflow-y','visible');
       });
-  },7300);
+  },100);
   $('#sec #indic').click(function(){
     $(window).scrollTop($('#sec1').offset().top);
   });
