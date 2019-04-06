@@ -1,0 +1,75 @@
+<!-- <?php
+  // session_start();
+  // echo "<h1>".$_SESSION['first'],$_SESSION['last'],$_SESSION['email']."</h1>";
+  if(isset($_POST['register'])){
+    $ImageName = $_FILES['photo']['name'];
+    echo "<h1>".$_POST['address']."</h1>";
+    $fileElementName = 'photo';
+    $path = 'ProfilePhotos/';
+    $location = $path . $_FILES['photo']['name'];
+    move_uploaded_file($_FILES['photo']['tmp_name'], $location);
+  }
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registration-Portal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="CSS/register.css">
+  <link rel="stylesheet" href="CSS/font-awesome-4.7.0/css/font-awesome.css">
+</head>
+  <body>
+    <form method="post" action="register.php" enctype="multipart/form-data">
+      <div class="icon">
+
+      </div>
+      <input type="text" name="fname" value=""><br>
+      <input type="text" name="lname" value=""><br>
+      <input type="text" name="username" value=""><br>
+      <input type="password" id="password" name="passw"><br>
+      <input type="password" id="pwd" name="reenter"><i class="fa fa-eye" id="reenter" aria-hidden="true"></i><br>
+      <span id="errmsg"></span>
+      <input type="text" name="phone" pattern="[0-9]{10}"><br>
+      <input type="email" name="email"><br>
+      <input type="radio" name="Gender">M
+      <input type="radio" name="Gender">F
+      <input type="date" name="dob"><br>
+      <textarea name="address" rows="8" cols="80"></textarea><br>
+      <input type="file" name="photo" ><br>
+      <input type="submit" name="register" value="Get Started">
+    </form>
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#reenter').on("click",function(){
+          var $pwd = $("#pwd");
+          if ($pwd.attr('type') === 'password'){
+            $pwd.attr('type', 'text');
+          }
+          else{
+            $pwd.attr('type', 'password');
+          }
+        });
+        var $pas = $("#pwd");
+        var $opas = $("#password");
+        $pas.keyup(function(){
+          var $spa = $("form #errmsg");
+          var $password = $pas.val();
+          if($password == $opas.val() && $password != ""){
+            $spa.html("Password Matched");
+            $spa.css('color','green');
+          }
+          else if($password != ""){
+            $spa.html("Password Should be same as above...!");
+            $spa.css('color','red');
+          }
+          else{
+            $spa.html("");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

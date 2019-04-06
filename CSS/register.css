@@ -1,0 +1,23 @@
+body{
+  background-color: white;
+}
+form{
+  position: absolute;
+  top: 0;left: 0;right: 0;bottom: 0;
+  margin: auto;
+  width: 60%;
+  height: 90%;
+  background-color: #121212;
+  border-radius: 5%;
+  padding: 2%;
+  box-sizing: border-box;
+}
+form .icon{
+  position: absolute;
+  top: 5%;left: 0;right: 0;
+  margin: auto;
+  width: 20%;
+  height: 20%;
+  background-color: #efefef;
+  border-radius: 50%;
+}
