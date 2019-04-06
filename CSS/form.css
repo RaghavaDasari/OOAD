@@ -84,6 +84,16 @@ body{
   color: turquoise;
   font-weight: bold;
 }
+#loginform span{
+  position: absolute;
+  left: 50%;
+  width : 70%;
+  font-family: monospace;
+  transform: translateX(-50%);
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+}
 
 #signupform lable{
   position: absolute;
@@ -95,21 +105,29 @@ body{
   transition-duration: 0.5s;
   transition-timing-function: ease;
 }
-#signupform #name{
+#signupform #fname{
   top: 25%;
   left: 6%;
 }
-#signupform #email{
+#signupform #lname{
   top: 44%;
   left: 6%;
 }
-#signupform #pass{
+#signupform #email{
   top: 63%;
   left: 6%;
 }
-#signupform input[type="text"]:valid ~ #name,
-#signupform input[type="text"]:focus ~ #name{
+#signupform input[name="first"]:valid ~ #fname,
+#signupform input[name="first"]:focus ~ #fname{
   top: 19%;
+  left: 6%;
+  font-size: 0.9em;
+  color: turquoise;
+  font-weight: bold;
+}
+#signupform input[name="last"]:valid ~ #lname,
+#signupform input[name="last"]:focus ~ #lname{
+  top: 38%;
   left: 6%;
   font-size: 0.9em;
   color: turquoise;
@@ -117,14 +135,6 @@ body{
 }
 #signupform input[type="email"]:valid ~ #email,
 #signupform input[type="email"]:focus ~ #email{
-  top: 38%;
-  left: 6%;
-  font-size: 0.9em;
-  color: turquoise;
-  font-weight: bold;
-}
-#signupform input[type="password"]:valid ~ #pass,
-#signupform input[type="password"]:focus ~ #pass{
   top: 57%;
   left: 6%;
   font-size: 0.9em;
