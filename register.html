@@ -21,20 +21,21 @@
   <link rel="stylesheet" href="CSS/font-awesome-4.7.0/css/font-awesome.css">
 </head>
   <body>
+    <div class="filter"></div>
     <form method="post" action="register.php" enctype="multipart/form-data">
       <div class="icon">
-
+        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
       </div>
-      <input type="text" name="fname" value=""><br>
-      <input type="text" name="lname" value=""><br>
-      <input type="text" name="username" value=""><br>
+      <input type="text" name="fname" autocomplete="off" value=""><br>
+      <input type="text" name="lname" autocomplete="off" value=""><br>
+      <input type="text" name="username" autocomplete="off" value=""><br>
       <input type="password" id="password" name="passw"><br>
       <input type="password" id="pwd" name="reenter"><i class="fa fa-eye" id="reenter" aria-hidden="true"></i><br>
-      <span id="errmsg"></span>
-      <input type="text" name="phone" pattern="[0-9]{10}"><br>
-      <input type="email" name="email"><br>
+      <span id="errmsg"></span><br>
+      <input type="text" name="phone" autocomplete="off" pattern="[0-9]{10}"><br>
+      <input type="email" name="email" autocomplete="off"><br>
       <input type="radio" name="Gender">M
-      <input type="radio" name="Gender">F
+      <input type="radio" name="Gender">F<br>
       <input type="date" name="dob"><br>
       <textarea name="address" rows="8" cols="80"></textarea><br>
       <input type="file" name="photo" ><br>
