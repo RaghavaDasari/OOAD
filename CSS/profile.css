@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Felipa');
+body{
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  font-family: 'Felipa', cursive;
+  height: 100vh;
+  color: white;
+}
+.intro-half{
+  position: absolute;
+  padding: 0;
+  top: 0;left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #008eff;
+}
+.intro-half .fa-user-circle-o{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin: auto;
+  font-size: 30vh;
+}
+.intro-half p#sugg{
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 3vh;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
+.intro-half img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  margin: auto;
+  width: 30vh;
+  height: 30vh;
+  box-sizing: border-box;
+  border-radius: 50%;
+  shape-outside: circle();
+}
+form input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}

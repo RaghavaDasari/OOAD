@@ -8,6 +8,7 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Felipa', cursive;
+  color: white;
 }
 div.filter{
   width: 100%;
@@ -65,7 +66,9 @@ form input,form textarea{
   background-color: transparent;
   font-family: 'Felipa', cursive;
   font-weight: bold;
-  font-size: 3vh;
+  font-size: 2.5vh;
+  width: 40%;
+  text-align: center;
 }
 form input:focus,form textarea:focus{
   outline: none;
@@ -74,6 +77,7 @@ form input[type="text"],
 form input[type="password"],
 form input[type="date"],form input[type="email"]{
   border-bottom: 1px solid grey;
+  color: white;
 }
 form textarea{
   border: 1px solid grey;
@@ -81,50 +85,121 @@ form textarea{
   width: 90%;
   max-width: 90%;
   min-width: 90%;
-  height: 30%;
-  max-height: 30%;
-  min-height: 30%;
+  height: 25%;
+  max-height: 25%;
+  min-height: 25%;
 }
 form input[type="file"]::-webkit-file-upload-button {
   visibility: hidden;
 }
+form label[for="photo"]{
+  position: absolute;
+  top: 15.5%;
+  right: 12%;
+  color: black;
+  font-size: 3vh;
+  font-weight: bold;
+  cursor: pointer;
+}
+form input[type="file"]{
+  cursor: pointer;
+}
 form input[name="fname"],form input[name="lname"]{
-  top: 22%;
+  top: 23%;
 }
 form input[name="lname"]{
   left: 55%;
 }
 form input[name="username"]{
-  top: 27%;
+  top: 29%;
   left: 50%;
   transform: translateX(-50%);
 }
 form input[name="passw"],form input[name="reenter"]{
-  top: 32%;
+  top: 35%;
 }
 form input[name="reenter"]{
   left: 55%;
 }
 form #errmsg{
   position: absolute;
-  top: 37%;
+  top: 41%;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
   text-align: center;
+  color: turquoise;
 }
 form input[name="phone"],form input[name="email"]{
-  top: 42%;
+  top: 45%;
 }
 form input[name="email"]{
   left: 55%;
 }
-form input[name="Gender"],form input[name="dob"]{
-  top: 52%;
-}
 form input[name="dob"]{
   left: 55%;
+  top: 52%;
+  width: 40%;
 }
 form textarea{
-  top: 62%;
+  top: 60%;
+  color: white;
+}
+form input[type="submit"]{
+  top: 90%;
+  border: 1px solid grey;
+  width: 90%;
+  height: 5%;
+  border-radius: 40px;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+  background: transparent;
+  color: white;
+}
+form input[type="submit"]:hover{
+  color: black;
+  background-color: rgba(255,255,255,0.7);
+}
+form input[type="file"]{
+  top: 15%;
+  left: 80%;
+  transform: translateX(-50%);
+  width: 35%;
+  border: 1px solid grey;
+  overflow: hidden;
+  border-radius: 30px;
+  background-color: white;
+}
+form #reenter{
+  position: absolute;
+  top: 35%;
+  right: 5%;
+  font-size: 3vh;
+  box-decoration-break: slice;
+}
+form .box{
+  position: absolute;
+  top: 51.5%;
+  width: 40%;
+  height: 5%;
+  text-align: center;
+  font-size: 3vh;
+  display: inline-flex;
+}
+form .box label input{
+  display: none;
+}
+form .box label span{
+  position: relative;
+  height: 100%;
+  border: 1px solid grey;
+  padding: 1px;
+  font-size: 2.5vh;
+  border-radius: 4px;
+  margin: 10px;
+}
+form .box label input:checked ~ span{
+  color: #008efe;
+  border: 1px solid #008eff;
+  box-shadow: 0px 0px 10px;
 }

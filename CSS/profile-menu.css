@@ -1,0 +1,123 @@
+.share{
+  position: absolute;
+  top: 48.5%;
+  left: 80%;
+  width: 75px;
+  height: 75px;
+  color: white;
+  transform: translate(-50%,-50%) rotate(45deg);
+  cursor: pointer;
+}
+.share .toogle{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  width: 75px;
+  height: 75px;
+  color: white;
+  text-align: center;
+  font-size: 37.5px;
+  line-height: 75px;
+  transform: translate(-50%,-50%);
+  transition: 0.5s;
+  background-color: #40CFDE;
+  border-radius: 20px;
+  z-index: 1;
+}
+.share .toogle::before{
+  content: '\f0c9';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+  color: #DEDB40;
+  text-align: center;
+  font-size: 37.5px;
+  line-height: 75px;
+  font-family: fontAwesome;
+  border-radius: 20px;
+  transform: rotate(-45deg);
+}
+.active .active{
+  background-color: #DEDB40;
+  }
+.active .active:before{
+  color: #40CFDE;
+  }
+.share .active::before{
+  content: '\f00d';
+}
+.share ul{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 37.5px;
+  height: 75px;
+  list-style: none;
+}
+.share ul li{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:75px;
+  height: 75px;
+  background-color: #40CFDE;
+  text-align: center;
+  line-height: 75px;
+  font-size: 37.5px;
+  border-radius: 20px;
+  transform: scale(0.9) rotateZ(360deg);
+  transition: 0.5s;
+}
+.active ul li{
+  transform: scale(0.9);
+}
+.share ul li a i{
+  transform: rotate(-45deg);
+}
+.share ul li a{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+  text-decoration: none;
+  color: #DEDB40;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+.share ul li:hover a{
+  color: #DEDB40;
+  background-color: #40CFDE;
+}
+.active ul li:nth-child(1){
+  top: -75px;
+  left: -75px;
+  transform: scale(0.9) rotateZ(0deg);
+  transition-delay: 0s;
+}
+.active ul li:nth-child(2){
+  top: -75px;
+  left: 0;
+  transition-delay: 0.2s;
+  transform: scale(0.9) rotateZ(0deg);
+}
+.active ul li:nth-child(3){
+  top: -75px;
+  left: 75px;
+  transition-delay: 0.4s;
+ transform: scale(0.9) rotateZ(0deg);
+}
+.active ul li:nth-child(4){
+  top: 0;
+  left: 75px;
+  transition-delay: 0.6s;
+  transform: scale(0.9) rotateZ(0deg);
+}
+.active ul li:nth-child(5){
+  top: 75px;
+  left: 75px;
+  transition-delay: 0.8s;
+  transform: scale(0.9) rotateZ(0deg);
+}
