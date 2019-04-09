@@ -20,7 +20,7 @@ $(document).ready(function(){
         $('#sec #indic').addClass('bounce');
         $('body').css('overflow-y','visible');
       });
-  },100);// Original Value 7300 seconds...
+  },7300);// Original Value 7300 seconds...
   $('#sec #indic').click(function(){
     $(window).scrollTop($('#sec1').offset().top);
   });
