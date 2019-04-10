@@ -59,6 +59,15 @@ body{
   box-sizing: border-box;
   border-radius: 50%;
 }
+.intro-half h1{
+  position: absolute;
+  top: 20%;
+  left: 28%;
+  transform: translate(-50%,-50%) rotate(-45deg);
+  text-shadow: -1px -1px 0px rgba(255,255,255,0.3), 1px 1px 0px rgba(0,0,0,0.8);
+	color: #333;
+	opacity: 0.4;
+}
 .finalhalf{
   float: right;
   width: 50vw;

@@ -1,0 +1,201 @@
+/*
+Color Combinations :
+#66fcf1 Heading colors
+#1f2833 text/icon colors
+#c5c6c7 text colors
+#45a29e button colors
+#0b0c10 background-colors
+*/
+
+.finalhalf #section1{
+  color: #66fcf1;
+  padding: 20px;
+  background-color: #0b0c10;
+  font-family: 'Felipa', cursive;
+}
+.finalhalf #section1 .item-upload{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2833;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.finalhalf #section1 .item-upload .fa-upload{
+  font-size: 4vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.finalhalf #section1 .item-upload .wrapper
+{
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+.finalhalf #section1 .active{
+  width: 40%;
+  height: 50%;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(255,255,255,0.5);
+  cursor: auto;
+}
+.finalhalf #section1 .active .wrapper{
+  visibility: visible;
+  z-index: 1;
+  color: #c5c6c7;
+}
+.finalhalf #section1 .active .wrapper .fa-close{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 3vh;
+  cursor: pointer;
+  z-index: 100;
+}
+.finalhalf #section1 .active .wrapper .upload{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%,-50%);
+}
+.finalhalf #section1 .active .wrapper .upload input,
+.finalhalf #section1 .active .wrapper .upload textarea{
+  position: absolute;
+  height: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Felipa', cursive;
+  font-size: 2.5vh;
+  color: #c5c6c7;
+  background: transparent;
+  border: none;
+  text-align: center;
+}
+.finalhalf #section1 .active .wrapper .upload input:focus,
+.finalhalf #section1 .active .wrapper .upload textarea:focus{
+  outline: none;
+}
+.finalhalf #section1 .active .wrapper .upload textarea{
+  bottom: 18%;
+  border: 1px solid grey;
+  width: 90%;
+  min-width: 90%;
+  max-width: 90%;
+  height: 35%;
+  min-height: 35%;
+  max-height: 35%;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.finalhalf #section1 .active .wrapper .upload textarea::-webkit-scrollbar{
+  display: none;
+}
+.finalhalf #section1 .active .wrapper .upload input[type="submit"]{
+  bottom: 5%;
+  width: 90%;
+  height: 7%;
+  background-color: #66fcf1;
+  border-radius: 15px;
+  transition: 0.25s;
+}
+.finalhalf #section1 .active .wrapper .upload input[type="submit"]:hover{
+  color: #66fcf1;
+  background-color: #0b0c10;
+  box-shadow: inset 0 5px 10px rgba(255,255,255,0.5);
+  cursor: pointer;
+}
+.finalhalf #section1 .active .wrapper .upload input[name="itemname"]{
+  top: 10%;
+}
+.finalhalf #section1 .active .wrapper .upload input[name="cost"]{
+  top: 23%;
+}
+.finalhalf #section1 .active .wrapper .upload #file{
+  top: 30%;
+  display: none;
+}
+.finalhalf #section1 .active .wrapper .upload label[for="file"]{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5vh;
+  width: 90%;
+  height: 7%;
+  text-align: center;
+  border: 1px solid grey;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.finalhalf #section1 h2{
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  transform: translateX(-50%) translateY(-20%);
+}
+.finalhalf #section1 .search{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.finalhalf #section1 .search .fa-search,
+.finalhalf #section1 .search input[type="text"]{
+  position: absolute;
+  top: 0;
+  left: 10%;
+  font-size: 4vh;
+}
+.finalhalf #section1 .search input[type="text"]{
+  background: transparent;
+  border: none;
+  color: #c5c6c7;
+  font-family: 'Felipa', cursive;
+  line-height: 3vh;
+  font-size: 2.8vh;
+  height: 50%;
+  width: 7%;
+  background-color: #1f2833;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding-left: 3%;
+}
+.finalhalf #section1 .search .fa-search{
+  top: 7%;
+  left: 11%;
+  z-index: 1;
+  cursor: pointer;
+}
+.finalhalf #section1 .search input[type="text"]:focus{
+  outline: none;
+}
+.finalhalf #section1 .search input[type="submit"]{
+  position: absolute;
+  top: 25%;
+  height: 45%;
+  width: 20%;
+  transform: translateY(-50%);
+  left: 71%;
+  border: none;
+  background-color: white;
+  font-family: 'Felipa', cursive;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(255,255,255,0.2);
+}
+.finalhalf #section1 .search input[type="submit"]:focus{
+  outline: none;
+}

@@ -4,6 +4,9 @@
   color: #8DCFFE;
   overflow: auto;
 }
+.finalhalf #section2::-webkit-scrollbar{
+  display: none;
+}
 .finalhalf #section2 .box{
   position: absolute;
   top: 10%;
@@ -195,10 +198,20 @@
   padding: 5px;
   font-size: 2.8vh;
 }
+
+.finalhalf #section2 #settings input[name="npass"],
+.finalhalf #section2 #settings label[for="npass"]{
+  display: none;
+}
 .finalhalf #section2 #settings input[type="checkbox"]:checked ~ span{
   color: #008eff;
   font-weight: bold;
   background-color: #FFF8DC;
   box-shadow: 0 0 10px black,
               0 0 10px #008eff;
+}
+
+.finalhalf #section2 #settings input[type="checkbox"]:checked ~ input[name="npass"],
+.finalhalf #section2 #settings input[type="checkbox"]:checked ~ label[for="npass"]{
+  display: inline;
 }
