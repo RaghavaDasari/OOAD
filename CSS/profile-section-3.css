@@ -1,0 +1,69 @@
+.finalhalf #section3{
+  padding: 20px;
+  background-color: #09E6E6;
+  color: #ABE609;
+}
+.finalhalf #section3 .wrapper{
+  position: absolute;
+  width: 90%;
+  height: 80%;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row: auto;
+  border-radius: 20px;
+}
+.finalhalf #section3 .wrapper .item{
+  position: relative;
+  margin: 10px 15px;
+  width: 13vw;
+  height: 27vh;
+  border-radius: 10px;
+  background-color: transparent;
+  overflow: hidden;
+  text-align: center;
+}
+.finalhalf #section3 .wrapper .item img{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.finalhalf #section3 .wrapper .item #content{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11,12,16,0.6);
+  text-align: center;
+  transition: 0.5s;
+}
+.finalhalf #section3 .wrapper .item #content p{
+  color: #66fcf1;
+  font-weight: bold;
+  margin: 1px;
+}
+.finalhalf #section3 .wrapper .item:hover #content{
+  top: 0;
+}
+.finalhalf #section3 .wrapper .item #content input[type="submit"]{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Felipa', cursive;
+  border: none;
+  background-color: white;
+  width: 70%;
+  border-radius: 5px;
+}
+.finalhalf #section3 .wrapper .item #content input[type="submit"]:focus{
+  outline: none;
+}

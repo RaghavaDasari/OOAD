@@ -17,8 +17,8 @@
       echo "<h1>".$result.$db->lastErrorMsg()."</h1>";
     }
     else{
-      $res = $result->fetchArray(SQLITE3_ASSOC);
-      $pro = $res['profilepic'];
+      $ressection2 = $result->fetchArray(SQLITE3_ASSOC);
+      $pro = $ressection2['profilepic'];
     }
   }
   if(isset($_POST['modify'])){
@@ -63,6 +63,8 @@
   <link rel="stylesheet" href="CSS/profile-menu.css">
   <link rel="stylesheet" href="CSS/profile-section-1.css">
   <link rel="stylesheet" href="CSS/profile-section-2.css">
+  <link rel="stylesheet" href="CSS/profile-section-3.css">
+  <link rel="stylesheet" href="CSS/profile-section-4.css">
   <link rel="stylesheet" href="CSS/profile-section-5.css">
   <script type="text/javascript" src="JS/jquery.js"></script>
 </head>
@@ -99,21 +101,97 @@
           <i class="fa fa-upload" aria-hidden="true"></i>
           <div class="wrapper">
             <i class="fa fa-close" arial-hidden="true"></i>
-            <form class="upload" action="" method="post">
-              <input type="text" name="itemname" placeholder="Item Name">
-              <input type="text" name="cost" placeholder="Initial Cost">
-              <label for="file" class="file-label">Select File to upload</label><input id="file" type="file" name="itempic">
+            <form class="upload" action="" method="post" enctype="multipart/form-data">
+              <input type="text" name="itemname" placeholder="Item Name" autocomplete="off">
+              <input type="text" name="cost" placeholder="Initial Cost" autocomplete="off">
+              <label for="file" class="file-label">Select File to upload</label><input type="file" id="file" name="itempic" >
               <textarea name="description" placeholder="Item Description..."></textarea>
               <input type="submit" name="upload" value="Start Auctioning">
             </form>
+            <?php
+              if(isset($_POST['upload'])){
+                $ImageName = $_FILES['itempic']['name'];
+                $fileElementName = 'itempic';
+                $path = 'Items/';
+                $location = "-";
+                if($_FILES['itempic']['name'] != ""){
+                  $location = $path . $_FILES['itempic']['name'];
+                  move_uploaded_file($_FILES['itempic']['tmp_name'], $location);
+                }
+                $db->exec("Insert into Items(name,icost,ccost,fcost,itempic,description,finaldate,upby) values('".$_POST['itemname']."',".$_POST['cost'].",".$_POST['cost'].",0,'".$location."','".$_POST['description']."',datetime('now','+7 days'),'".$user."')");
+                header("Location: profile.php");
+              }
+            ?>
           </div>
         </div>
         <form class="search" action="" method="post">
           <label>
             <i class="fa fa-search" arial-hidden="true"></i>
-            <input type="text" name="search" placeholder="" data="Search for Item" autocomplete="off">
+            <input type="text" name="search-text" placeholder="" data="Search for Item" autocomplete="off">
           </label>
           <input type="submit" name="search" value="search">
+        </form>
+        <div class="search-result">
+          <?php
+            if(isset($_POST['search'])){
+              $sear = $_POST['search-text'];
+              if($sear != ""){
+                $result = $db->query("Select * from Items where name='".$sear."' and finaldate > datetime('now')");
+                if($result instanceof SQLite3Result){
+                  $flag = False;
+                  while($res = $result->fetchArray(SQLITE3_ASSOC)){
+                    $flag = True;
+                    echo "<div id=\"".$res['itemid']."\" class=\"item\">";
+                    if($res['itempic'] != "")
+                      echo "<img src=\"".$res['itempic']."\" alt=\"".$res['itemname']."\">";
+                    else
+                      echo "<i class=\"fa fa-file-image-o\"></i>";
+                    echo "<div id=\"content\">
+                      <p>Item Name : ".$res['name']."</p>
+                      <p>Initial Cost : ".$res['icost']."</p>
+                      <p>Current Cost : ".$res['ccost']."</p>
+                      <p>Auction Ends in :<br><span>".$res['finaldate']."</span></p>
+                      <form id=\"bid\" action=\"\"><input type=\"submit\" name=\"bid-".$res['itemid']."\" value=\"Bid\"></form>
+                      </div>
+                    </div>";
+                  }
+                  if($flag == false){
+                    echo "<h2>Successful search with no result..!</h2>";
+                  }
+                }
+                else{
+                  echo "<h2>Sorry!Failed to search</h2>";
+                }
+              }
+              else{
+                echo "<h2>Type Something to Search....!!</h2>";
+              }
+            }
+            else{
+              $result = $db->query("Select * from Items where finaldate > datetime('now')");
+              if($result instanceof SQLite3Result){
+                while($res = $result->fetchArray(SQLITE3_ASSOC)){
+                  echo "<div id=\"".$res['itemid']."\" class=\"item\">";
+                  if($res['itempic'] != "")
+                    echo "<img src=\"".$res['itempic']."\" alt=\"".$res['itemname']."\">";
+                  else
+                    echo "<i class=\"fa fa-file-image-o\"></i>";
+                  echo "<div id=\"content\">
+                      <p>Item Name : ".$res['name']."</p>
+                      <p>Initial Cost : ".$res['icost']."</p>
+                      <p>Current Cost : ".$res['ccost']."</p>
+                      <p>Auction Ends in :<br><span>".$res['finaldate']."</span></p>
+                      <form id=\"bid\" action=\"\"><input type=\"submit\" name=\"bid-".$res['itemid']."\" value=\"Bid\"></form>
+                    </div>
+                  </div>";
+                }
+            }
+          }
+          ?>
+        </div>
+        <form class="check" action="" method="post">
+          <input type="submit" name="payment" value="Check-Due"><br>
+          <input type="submit" name="itemstatus" value="Auction-status">
         </form>
       </div>
       <div class="section" id="section2">
@@ -122,13 +200,13 @@
           <div class="content">
             <center><h1 style="color: black;font-size: 2.5vh;">currently <?php echo "$user"?>'s</h1></center>
             <p>
-            Name : <?php echo $res['Name'];?><br>
+            Name : <?php echo $ressection2['Name'];?><br>
             Age : <?php echo date_diff(date_create($res['DOB']), date_create('today'))->y;?> years<br>
-            E-Mail : <?php echo $res['email'];?><br>
-            Gender : <?php echo $res['gender'];?><br>
-            Date of Birth : <?php echo $res['DOB'];?><br>
-            Phone Number : <?php echo $res['phone'];?><br>
-                Address: <br><?php echo $res['address'];?><br>
+            E-Mail : <?php echo $ressection2['email'];?><br>
+            Gender : <?php echo $ressection2['gender'];?><br>
+            Date of Birth : <?php echo $ressection2['DOB'];?><br>
+            Phone Number : <?php echo $ressection2['phone'];?><br>
+                Address: <br><?php echo $ressection2['address'];?><br>
             </p>
           </div>
           <div class="details">
@@ -159,19 +237,68 @@
           <input type="submit" name="modify" value="Modify"><br>
         </form>
       </div>
-      <div class="section" id="section3"></div>
-      <div class="section" id="section4"></div>
+      <div class="section" id="section3">
+        <h1>On Going Auctions...</h1>
+        <div class="wrapper">
+          <?php
+          $result = $db->query("Select * from Items where finaldate > datetime('now')");
+          if($result instanceof SQLite3Result){
+            while($res = $result->fetchArray(SQLITE3_ASSOC)){
+              echo "<div id=\"".$res['itemid']."\" class=\"item\">";
+              if($res['itempic'] != "")
+                echo "<img src=\"".$res['itempic']."\" alt=\"".$res['itemname']."\">";
+              else
+                echo "<i class=\"fa fa-file-image-o\"></i>";
+              echo "<div id=\"content\">
+                  <p>Item Name : ".$res['name']."</p>
+                  <p>Initial Cost : ".$res['icost']."</p>
+                  <p>Current Cost : ".$res['ccost']."</p>
+                  <p>Auction Ends in :<br><span>".$res['finaldate']."</span></p>
+                  <form id=\"bid\" action=\"\"><input type=\"submit\" name=\"bid-".$res['itemid']."\" value=\"Bid\"></form>
+                </div>
+              </div>";
+            }
+          }
+          ?>
+        </div>
+      </div>
+      <div class="section" id="section4">
+        <h1>Auctions Won...</h1>
+        <div class="wrapper">
+          <?php
+          $result = $db->query("Select * from Items where finaldate < datetime('now') and wonby = '".$user."'");
+          if($result instanceof SQLite3Result){
+            while($res = $result->fetchArray(SQLITE3_ASSOC)){
+              echo "<div id=\"".$res['itemid']."\" class=\"item\">";
+              if($res['itempic'] != "")
+                echo "<img src=\"".$res['itempic']."\" alt=\"".$res['itemname']."\">";
+              else
+                echo "<i class=\"fa fa-file-image-o\"></i>";
+              echo "<div id=\"content\">
+                  <p>Item Name : ".$res['name']."</p>
+                  <p>Initial Cost : ".$res['icost']."</p>
+                  <p>Final Cost : ".$res['ccost']."</p>
+                  <p>Description : ".$res['description']."</p>
+                  <p><br><span>".$res['finaldate']."</span></p>
+                  <form id=\"pay\" action=\"\"><input type=\"submit\" name=\"pay-".$res['itemid']."\" value=\"Pay\"></form>
+                </div>
+              </div>";
+            }
+          }
+          ?>
+        </div>
+      </div>
       <div class="section" id="section5">
         <div id="bgimg"></div>
-        <form method="post" id="logform" action="">
+        <form method="post" id="logform" action="index.html">
           <p>If you are suerly want to Quit...!<br><i class="fa fa-2x fa-hand-o-down" aria-hidden="true"></i></p>
-          <input id="logout" type="submit" name="submit" value="Then Proceed!">
+          <input id="logout" type="submit" name="submit-logout" value="Then Proceed!">
         </form>
       </div>
     </div>
  </body>
  <?php
- if(isset($_POST['submit'])){
+ if(isset($_POST['submit-logout'])){
    if(session_destroy())
    {
      header("Location: index.html");
@@ -221,7 +348,7 @@
         $('.finalhalf #section1 .item-upload').removeClass("active");
         $('.finalhalf #section1 .item-upload .fa-upload').css('visibility','visible');
       });
-      var $file = $('.finalhalf #section1 .active .wrapper .upload #file');
+      var $file = $('.finalhalf #section1 .item-upload .wrapper .upload #file');
       $file.on("change",function(e){
         var $name = e.target.value.split("\\").pop();
         if($name != ""){
@@ -249,6 +376,28 @@
           $handle.attr("placeholder", "");
         }
         e.preventPropogation();
+      });
+
+
+
+      var $item = $('.item');
+      $item.each(function(){
+        var $sp = $(this).find('span');
+        var $countDownDate = new Date($sp.text()).getTime();
+        var x = setInterval(function(){
+          var now = new Date().getTime();
+          var distance = $countDownDate - now;
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          var $rem = days + "d " + hours + "h "+ minutes + "m " + seconds + "s ";
+          $sp.text($rem);
+          if (distance < 0) {
+            clearInterval(x);
+            $sp.text("Auction Completed");
+          }
+        }, 1000);
       });
     });
   </script>

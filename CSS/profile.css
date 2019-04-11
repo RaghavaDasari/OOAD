@@ -12,7 +12,7 @@ body{
   position: fixed;
   padding: 0;
   top: 0;left: 0;
-  width: 51%;
+  width: 50.5%;
   height: 100%;
   z-index: 1;
   border-top-right-radius: 3%;
@@ -70,7 +70,7 @@ body{
 }
 .finalhalf{
   float: right;
-  width: 50vw;
+  width: 50%;
   height: 100vh;
   scroll-behavior: smooth;
   display: flex;
